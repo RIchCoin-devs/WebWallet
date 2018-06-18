@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-  <title>SHIELD wallet</title>
+  <title>RIchCOin wallet</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -129,11 +129,11 @@
       </div>
       <div class="right hide-on-med-and-up">
          <!--I Fucking love this little Fucker-->
-        <p class="yellow-text text-darken-3 scale-transition scale-out" id="littleCurrencySmall">5.000.000 xsh</p>
+        <p class="yellow-text text-darken-3 scale-transition scale-out" id="littleCurrencySmall">5.000.000 xri</p>
       </div>
       <div class="left hide-on-small-only col s4">
          <!--But I don't know if I like this-->
-        <h4 class="yellow-text text-darken-3 scale-transition scale-out" id="littleCurrencyLarge">5.000.000 XSH</h4>
+        <h4 class="yellow-text text-darken-3 scale-transition scale-out" id="littleCurrencyLarge">5.000.000 XRI</h4>
       </div>
 
   </nav>
@@ -148,7 +148,7 @@
             </div>
             <div class="col s8">
               <h1 id="balancetext" class="yellow-text text-darken-3 responsive-img" style="font-size: 250%;">1,000,000
-                <br>XSH</h1>
+                <br>XRI</h1>
             </div>
           </div>
         </div>
@@ -178,9 +178,9 @@
             <h1 class="center blue-grey-text text-lighten-2">
               <i class="material-icons">send</i>
             </h1>
-            <h5 class="center">Send/Receive XSHs</h5>
+            <h5 class="center">Send/Receive XRIs</h5>
             <p class="center">
-              Send and receive XSH securely to/from other SHIELD wallets - web wallet or not.
+              Send and receive XRI securely to/from other RIchCoin wallets - web wallet or not.
             </p>
 
           </div>
@@ -212,7 +212,7 @@
             <div class="col s3 push-s4">
               <i class="material-icons red-text">call_made</i>
             </div>
-            <div class="col s3 red-text">1.000 XSH</div>
+            <div class="col s3 red-text">1.000 XRI</div>
           </div>
 
           <div class="collapsible-body">
@@ -237,7 +237,7 @@
         </li>
         <li>
           <div class="collapsible-header green-text">
-            <i class="material-icons">call_received</i>600 XSH</div>
+            <i class="material-icons">call_received</i>600 XRI</div>
           <div class="collapsible-body">
             <table class="responsive-table">
               <thead>
@@ -260,7 +260,7 @@
 
         <li>
           <div class="collapsible-header green-text">
-            <i class="material-icons">call_received</i>700 XSH</div>
+            <i class="material-icons">call_received</i>700 XRI</div>
           <div class="collapsible-body">
             <table class="responsive-table">
               <thead>
@@ -273,7 +273,7 @@
               <tbody>
                 <tr>
                   <td>SdSqX8F6y3GTCb8KsPf2iyJu6hRnvUbm8y</td>
-                  <td>300 XSH</td>
+                  <td>300 XRI</td>
                   <td>13/01/2018</td>
                 </tr>
               </tbody>
@@ -282,7 +282,7 @@
         </li>
 
       </ul>
-      <button class="btn waves-effect waves-light" onclick="window.location = 'https://altmix.org/coins/2-SHIELD'">Block Explorer
+      <button class="btn waves-effect waves-light" onclick="window.location = 'https://altmix.org/coins/2-RIchCoin'">Block Explorer
         <i class="material-icons right">send</i>
       </button>
     </div>
@@ -293,7 +293,7 @@
     <div class="section">
       <div class="card">
         <div class="card-content">
-          <span class="card-title">Send XSH</span>
+          <span class="card-title">Send XRI</span>
           <div class="row">
             <div class="input-field col s8">
               <input placeholder="Address" name="sendaddr" id="sendaddr" type="text" required="" class="validate" minlength="34" maxlength="34">
@@ -306,7 +306,7 @@
               <label for="sendamount" data-error="Please fill in a valid value" data-success="Seems OK">Amount</label>
             </div>
           </div>
-          <blockquote><i>Note: this doesn't include the tx fee of 0.05 XSH</i></blockquote>
+          <blockquote><i>Note: this doesn't include the tx fee of 0.05 XRI</i></blockquote>
           <button class="btn waves-effect waves-light darken-1" type="submit" name="action" onclick="SendForm()">
             Send
             <i class="material-icons right">send</i>
@@ -320,7 +320,7 @@
               <div class="col s3 push-s4">
                 <i class="material-icons green-text">account_balance_wallet</i>
               </div>
-              <div class="col s3 green-text">1.000 XSH</div>
+              <div class="col s3 green-text">1.000 XRI</div>
             </div>
   
             <div class="collapsible-body">
@@ -435,7 +435,7 @@
         }
         console.log(data);
         if (data.StatusCode === 200) {
-          Materialize.toast("XSH is being send, please wait 2 minutes for the transaction", 4000);
+          Materialize.toast("XRI is being sent, please wait 2 minutes for the transaction", 4000);
         }else{
           Materialize.toast(data.Content, 4000);
         }
@@ -458,7 +458,7 @@
           let transactions = data.Content;
           transactions.forEach(element => {
             var template = '<li><div class="collapsible-header"><div class="col s3 push-s4"><i class="material-icons green-text">account_balance_wallet</i></div><div class="col s3 green-text adress-item">Address</div></div></li>'
-            //var template = '<li> <div class="collapsible-header"><div class="col s3 push-s4"> <i class="material-icons red-text">call_made</i> </div> <div class="col s3 red-text">{Amount} XSH</div> </div> <div class="collapsible-body"> <div class="col s4"> Addres </div> </div> </li>';
+            //var template = '<li> <div class="collapsible-header"><div class="col s3 push-s4"> <i class="material-icons red-text">call_made</i> </div> <div class="col s3 red-text">{Amount} XRI</div> </div> <div class="collapsible-body"> <div class="col s4"> Addres </div> </div> </li>';
             template = template.replace("Address", element)
             $("ul.addresses-list").append(template)
           })
@@ -481,9 +481,9 @@
         if (data.Content === "Couldn't find session")
           window.location = "/Login";
         if (data.StatusCode === 200) {
-          document.getElementById("balancetext").innerHTML = Number(data.Content).toFixed(6) + "<br> XSH";
-          document.getElementById("littleCurrencyLarge").innerHTML = Number(data.Content).toFixed(6) + " XSH";
-          document.getElementById("littleCurrencySmall").innerHTML = Number(data.Content).toFixed(6) + " XSH";
+          document.getElementById("balancetext").innerHTML = Number(data.Content).toFixed(6) + "<br> XRI";
+          document.getElementById("littleCurrencyLarge").innerHTML = Number(data.Content).toFixed(6) + " XRI";
+          document.getElementById("littleCurrencySmall").innerHTML = Number(data.Content).toFixed(6) + " XRI";
         } else {
           Materialize.toast(data.Content, 4000);
         }
@@ -501,8 +501,8 @@
         if (data.StatusCode === 200) {
           let transactions = data.Content.reverse();
           transactions.forEach(element => {
-            var template = '<li><div class="collapsible-header"><div class="col s3 push-s4"><i class="material-icons red-text">call_made</i></div><div class="col s3 red-text">{Amount} XSH</div></div><div class="collapsible-body"><div class="col s4" id="content"><code>address</code></div></div></li>'
-            //var template = '<li> <div class="collapsible-header"><div class="col s3 push-s4"> <i class="material-icons red-text">call_made</i> </div> <div class="col s3 red-text">{Amount} XSH</div> </div> <div class="collapsible-body"> <div class="col s4"> Addres </div> </div> </li>';
+            var template = '<li><div class="collapsible-header"><div class="col s3 push-s4"><i class="material-icons red-text">call_made</i></div><div class="col s3 red-text">{Amount} XRI</div></div><div class="collapsible-body"><div class="col s4" id="content"><code>address</code></div></div></li>'
+            //var template = '<li> <div class="collapsible-header"><div class="col s3 push-s4"> <i class="material-icons red-text">call_made</i> </div> <div class="col s3 red-text">{Amount} XRI</div> </div> <div class="collapsible-body"> <div class="col s4"> Addres </div> </div> </li>';
             template = template.replace("address", JSON.stringify(element, undefined, 2))
               .replace("{Amount}", element.amount).replace("red", element.amount > 0 ? "green" : "red").replace("call_made", element.amount > 0 ? "call_received" : "call_made")
             $("ul.transaction-list").append(template)
@@ -512,8 +512,8 @@
         }
         if (!data.Content.length) {
           $('ul.transaction-list').empty();
-          var template = '<li><div class="collapsible-header"><div class="col s3 push-s4"><i class="material-icons red-text">call_made</i></div><div class="col s3 red-text">{Amount} XSH</div></div><div class="collapsible-body"><div class="col s4">address</div></div></li>'
-          template = template.replace("address", "Check again later").replace("{Amount} XSH", "No transactions yet");
+          var template = '<li><div class="collapsible-header"><div class="col s3 push-s4"><i class="material-icons red-text">call_made</i></div><div class="col s3 red-text">{Amount} XRI</div></div><div class="collapsible-body"><div class="col s4">address</div></div></li>'
+          template = template.replace("address", "Check again later").replace("{Amount} XRI", "No transactions yet");
           $("ul.transaction-list").append(template)
         }
         last["gettransactions"] = data;
