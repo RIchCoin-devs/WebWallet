@@ -6,21 +6,21 @@ var http = require('http')
 var https = require('https')
 var config = require('./config')
 var fs = require('fs')
-var xsh = require('node-xsh')
+var xri = require('node-xri')
 
-const shield = xsh({
+const RIchCoin = xri({
   host: '127.0.0.1',
-  port: '20103',
+  port: '20203',
   https: false
 })
-shield.auth(config.XSH.rpcuser, config.XSH.rpcpassword)
-if (config.XSH.encrypted) {
-  shield.exec('walletpassphrase', config.XSH.walletpassphrase, 10000000, function (err, data) {
+RIchCoin.auth(config.XRI.rpcuser, config.XRI.rpcpassword)
+if (config.XRI.encrypted) {
+  RIchCoin.exec('walletpassphrase', config.XRI.walletpassphrase, 10000000, function (err, data) {
     if (err) console.log(err)
     console.log(data)
   })
 }
-// xsh.auth('test', 'muffin')
+// xri.auth('test', 'muffin')
 
 var usersDB = nosql.load('./Databases/user.nosql')
 var sessionsDB = nosql.load('./Databases/sessions.nosql')
@@ -323,7 +323,7 @@ function mainServer (request, response) {
                       }).callback(function (err) {
                         log('A user has been created.', 2)
                         if (!err) {
-                          shield.exec('getNewAddress', request.post.username.toLowerCase(), function (err, addr) {
+                          RIchCoin.exec('getNewAddress', request.post.username.toLowerCase(), function (err, addr) {
                             if (err) {
                               log(String(err), 3)
                             }
@@ -472,7 +472,7 @@ function apiServer (request, response) {
   if (uri.toLowerCase().split('/')[2] === 'send') { // /api/send/<session>/<address>/<amount>
     util.CheckSessionUser(sessionsDB, usersDB, args[0]).then(x => {
       if (util.CheckStrNumber(args[2], 1)) { // TODO: max as real balance
-        shield.exec('getbalance', x[0].username, function (err, balance) {
+        RIchCoin.exec('getbalance', x[0].username, function (err, balance) {
           if (err) {
             log(String(err), 3)
             util.APIResponseReturn(response, "Couldn't get addresses", 400)
@@ -482,7 +482,7 @@ function apiServer (request, response) {
             util.APIResponseReturn(response, 'Not enough balance', 400)
             return
           }
-          shield.exec('sendfrom', x[0].username, args[1], Number(args[2]), function (err, txid) {
+          RIchCoin.exec('sendfrom', x[0].username, args[1], Number(args[2]), function (err, txid) {
             if (err) {
               log(String(err), 3)
               util.APIResponseReturn(response, "Couldn't broadcast transaction, do you have enough balance?", 400)
@@ -497,7 +497,7 @@ function apiServer (request, response) {
     })
   } else if (uri.toLowerCase().split('/')[2] === 'gettransactions') { // /api/gettransactions/<session>
     util.CheckSessionUser(sessionsDB, usersDB, args[0]).then(x => {
-      shield.exec('listtransactions', x[0].username, function (err, txjson) {
+      RIchCoin.exec('listtransactions', x[0].username, function (err, txjson) {
         if (err) {
           log(String(err), 3)
           util.APIResponseReturn(response, "Couldn't get transactions", 500)
@@ -510,7 +510,7 @@ function apiServer (request, response) {
     })
   } else if (uri.toLowerCase().split('/')[2] === 'getbalance') { // /api/gettransactions/<session>
     util.CheckSessionUser(sessionsDB, usersDB, args[0]).then(x => {
-      shield.exec('getbalance', x[0].username, function (err, json) {
+      RIchCoin.exec('getbalance', x[0].username, function (err, json) {
         if (err) {
           log(String(err), 3)
           util.APIResponseReturn(response, "Couldn't get addresses", 400)
@@ -523,7 +523,7 @@ function apiServer (request, response) {
     })
   } else if (uri.toLowerCase().split('/')[2] === 'getaddresses') { // /api/gettransactions/<session>
     util.CheckSessionUser(sessionsDB, usersDB, args[0]).then(x => {
-      shield.exec('getaddressesbyaccount', x[0].username, function (err, json) {
+      RIchCoin.exec('getaddressesbyaccount', x[0].username, function (err, json) {
         if (err) {
           log(String(err), 3)
           util.APIResponseReturn(response, "Couldn't get addresses", 400)
@@ -537,14 +537,14 @@ function apiServer (request, response) {
     })
   } else if (uri.toLowerCase().split('/')[2] === 'addaddress') { // /api/gettransactions/<session>
     util.CheckSessionUser(sessionsDB, usersDB, args[0]).then(x => { // TODO: add error detection for core
-      shield.exec('getaddressesbyaccount', x[0].username, function (err, txjson) {
+      RIchCoin.exec('getaddressesbyaccount', x[0].username, function (err, txjson) {
         if (err) {
           log(String(err), 3)
           util.APIResponseReturn(response, "Couldn't get addresses", 400)
           return
         }
         if (txjson.length < 10) {
-          shield.exec('getnewaddress', x[0].username, function (err, txjson) {
+          RIchCoin.exec('getnewaddress', x[0].username, function (err, txjson) {
             if (err) {
               log(String(err), 3)
               util.APIResponseReturn(response, "Couldn't get addresses", 400)
