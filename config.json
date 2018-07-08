@@ -9,7 +9,7 @@
     "XSH": {
         "walletpassphrase": "5i3IG5vLjp4a",
         "encrypted": true,
-        "RPCPort": 20103,
+        "RPCPort": 20203,
         "rpcuser": "bitcoinrpc",
         "rpcpassword": "9GHqNhXjEHY5kq7k2oSECUpzKpk6GWu8TDrXzupP6CQc"
     },
