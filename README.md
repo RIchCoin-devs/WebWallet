@@ -4,7 +4,7 @@
 [![Dependency Status](https://david-dm.org/geoffdutton/lambda-proxy-utils.svg)](https://david-dm.org/geoffdutton/WebWallet/)
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/)
 
-The SHIELD original webwallet repository
+The RIchCoin webwallet forked from SHIELD
 
 ## Testing
 Run `npm test` for the main tests. It uses Standard to lint and Jest to test.
