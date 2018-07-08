@@ -1,14 +1,14 @@
 {
-    "name": "xsh-webwallet",
+    "name": "xri-webwallet",
     "version": "0.0.1",
-    "description": "SHIELD WebWallet",
+    "description": "RIchCoin WebWallet",
     "keywords": [
-        "XSH",
-        "SHIELD",
+        "XRI",
+        "RIchCoin",
         "WebWallet"
     ],
-    "repository": "git://github.com/ShieldCoin/WebWallet.git",
-    "author": "SHIELD <ShieldCoin@protonmail.com>",
+    "repository": "git://github.com/RIchCoin-devs/WebWallet.git",
+    "author": "RIchCoin <richcoin.xri@gmail.com>",
     "main": "Server.js",
     "engines": {
         "node": ">= 0.4.0"
